@@ -11,6 +11,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	/** カラム名の定義 */
 	public static final String ID = "_id";
 	public static final String DATA = "data";
+	public static final String CHECKED = "checked";
 
 	/** 
 	 * データベースファイルのファイル名
@@ -28,8 +29,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TODO_TABLE_CREATE =
                 "CREATE TABLE " + TODO_TABLE_NAME + " (" +
                 ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-                DATA + " TEXT NOT NULL);";
-    
+                DATA + " TEXT NOT NULL, " +
+                CHECKED + " INTEGER NOT NULL" +
+                ");";
     
     /* コンストラクタ */
 	public DatabaseHelper(Context context) {
@@ -45,9 +47,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		
 		/* ダミーデータを2件追加 */
 		ContentValues values = new ContentValues();
+		
 		values.put(DATA, "テスト");
+		values.put(CHECKED, 0);
 		db.insert(TODO_TABLE_NAME, null, values);
+
 		values.put(DATA, "テスト２");
+		values.put(CHECKED, 0);
 		db.insert(TODO_TABLE_NAME, null, values);
 	}
 
