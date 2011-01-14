@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, TestAppActivity!</string>
     <string name="app_name">TodoApp</string>
+    <string name="label_add">add</string>
+    <string name="send">send</string>
 </resources>
